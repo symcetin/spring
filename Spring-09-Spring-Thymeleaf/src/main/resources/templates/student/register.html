@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang ="eng" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>
+  Welcome New Student!
+</h2>
+<!-- Displaying Value -->
+<h2 th:text="${students.get(0).firstname}"></h2>
+<h2 th:text="${students.get(0).lastname}"></h2>
+
+<!--Concatenation-->
+<h2 th:text="${'Welcome ' +students.get(0).firstname }"></h2>
+
+<!--Link-->
+<a th:href="@{https://cydeo.com}">Cydeo Home Page</a>
+<br>
+<a th:href="@{/student/welcome}">Link1</a>
+
+<!--Adding Parameters to Link-->
+<a th:href="@{/student/welcome(id=3)}">Link2</a>
+<a th:href="@{/student/welcome(id=${students.get(0).firstname})}">Link3</a>
+
+<!--Iteration-->
+
+<ul>
+    <li th:each="student : ${students}" th:text="${student.firstname}"></li>
+</ul>
+</body>
+</html>
