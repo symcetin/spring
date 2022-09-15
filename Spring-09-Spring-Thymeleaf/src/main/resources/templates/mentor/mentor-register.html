@@ -9,7 +9,7 @@
 
 <body>
 
-<form th:object="${mentor}">
+<form th:action="@{/mentor/confirm}" method="post" th:object="${mentor}">
     <label>First Name:</label>
     <input type="text"  id="FirstName" th:field="*{firstName}"><br>
 
@@ -30,6 +30,11 @@
     <select th:field="*{batch}">
         <option th:each="theBatch : ${batchList}" th:value="${theBatch}" th:text="${theBatch}"></option>
     </select>
+
+    <label>Company</label>
+    <textarea th:field="*{company}"></textarea><br>
+
+    <button type="submit">Register</button>
 </form>
 </body>
 </div>
