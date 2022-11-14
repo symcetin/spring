@@ -4,11 +4,13 @@ import com.cydeo.entity.MovieCinema;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public interface MovieCinemaRepository extends JpaRepository<MovieCinema, Long> {
 
     // ------------------- DERIVED QUERIES ------------------- //
@@ -38,7 +40,7 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema, Long> 
 
     //Write a JPQL query to list all movie cinemas with higher than a specific date
     @Query("SELECT mc FROM MovieCinema mc WHERE mc.dateTime > ?1")
-    List<MovieCinema> fetAllWithHigherThanSpecificDate(@Param("dateTime") LocalDateTime dateTime);
+    List<MovieCinema> fetchAllWithHigherThanSpecificDate(@Param("dateTime") LocalDateTime dateTime);
 
     // ------------------- Native QUERIES ------------------- //
 
